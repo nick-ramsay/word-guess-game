@@ -1,0 +1,21 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.clueBox {
+    background-color: blue;
+    color: white;
+    border: blue solid 1px;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding:10px;
+}
+
+.gameStatBox {
+    background-color: red;
+    color:white;
+    border: red solid 1px;
+    border-radius: 25px;
+    margin-top: 20px;
+    padding:10px;
+}
