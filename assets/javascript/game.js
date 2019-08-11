@@ -16,11 +16,11 @@ var usedLetters = [];
 var chosenWordNumber = Math.floor(Math.random() * Object.keys(wordChoices).length); //Generates a random integer equivalent less than or equal to count of objects in array
 console.log(chosenWordNumber);
 
-var chosenWord = wordChoices.(Object.keys(wordChoices)[chosenWordNumber]); //Uses chosenWord integer to pick value of random word property from word choices object
-console.log(chosenWord);
+var chosenWordProperty = Object.keys(wordChoices)[chosenWordNumber];
+console.log(chosenWordProperty);
 
-
-
+var chosenWordValue = wordChoices[chosenWordProperty];
+console.log(chosenWordValue);
 
 
 
