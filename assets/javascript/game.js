@@ -97,11 +97,11 @@ document.onkeyup = function (event) {
 
             if (score === winningScore) {
                 score++;
+                chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
                 newWord();
                 alert("Congratulations! You win! Play again!");
                 score = 0;
                 guessesRemaining = 15;
-                chosenWordHistory = [];
             }
         }
     }
