@@ -3,6 +3,10 @@ body {
     background-image: url("../images/old_map.png");
 }
 
+#clueText {
+    text-transform: capitalize;
+}
+
 .clueBox {
     background-color: blue;
     color: white;

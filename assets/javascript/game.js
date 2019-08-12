@@ -1,6 +1,6 @@
 var wordChoices = {
     austrailia: ["c", "a", "n", "b", "e", "r", "r", "a"],
-    unitedStates: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"], //Problem with noun must be fixed... indexOf only catches the first occurrence of the letter. It breaks after that... need a for loop to replace all occurrences of letters
+    united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"], //Problem with noun must be fixed... indexOf only catches the first occurrence of the letter. It breaks after that... need a for loop to replace all occurrences of letters
     russia: ["m", "o", "s", "c", "o", "w"],
     china: ["b", "e", "i", "j", "i", "n", "g"],
     japan: ["t", "o", "k", "y", "o"],
@@ -11,7 +11,7 @@ var wordChoices = {
 
 var wordImages = {
     australia: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Australia_with_AAT_%28orthographic_projection%29.svg/375px-Australia_with_AAT_%28orthographic_projection%29.svg.png",
-    unitedStates: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/USA_orthographic.svg/330px-USA_orthographic.svg.png",
+    united_states: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/USA_orthographic.svg/330px-USA_orthographic.svg.png",
     russia: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Russian_Federation_2014_%28orthographic_projection%29_with_Crimea.svg/330px-Russian_Federation_2014_%28orthographic_projection%29_with_Crimea.svg.png",
     china: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CHN_orthographic.svg/330px-CHN_orthographic.svg.png",
     japan: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Japan_%28orthographic_projection%29.svg/330px-Japan_%28orthographic_projection%29.svg.png",
@@ -33,9 +33,9 @@ var guessedLetters;
 
 var chosenWordHistory = [];
 
-if (chosenWordHistory.length === Object.keys(wordChoices).length) {
+/*if (chosenWordHistory.length === winningScore) {
     chosenWordHistory = [];
-} // If all the words (properties) in the wordChoice object have been used, clear array to start again.
+} // If all the words (properties) in the wordChoice object have been used, clear array to start again.*/
 
 var chosenWordNumber; //Generates a random integer equivalent less than or equal to count of properties in the object
 var chosenWordProperty;  //Uses chosenWordNumber to pick a property from object
@@ -56,6 +56,14 @@ function newWord() {
     chosenWordImage = wordImages[chosenWordImageProperty];
     guessedLetters = [];
     chosenWordHistory.push(chosenWordNumber);
+
+    document.getElementById("score").textContent = score;
+    document.getElementById("guessesRemaining").textContent = guessesRemaining;
+    document.getElementById("currentWord").textContent = currentWord.join(" ");
+    document.getElementById("guessedLetters").textContent = guessedLetters;
+    document.getElementById("clueText").textContent = chosenWordProperty.replace("_"," ");
+    
+    document.getElementById("wordImage").src = chosenWordImage;
 }
 
 document.onkeyup = function (event) {
@@ -83,8 +91,8 @@ document.onkeyup = function (event) {
             }
 
             if (currentWord.indexOf("_") === -1 && score < winningScore) {
-                newWord();
                 score++;
+                newWord();     
             }
 
             if (score === winningScore) {
@@ -110,11 +118,8 @@ document.onkeyup = function (event) {
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").textContent = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters;
-    document.getElementById("clueText").textContent = chosenWordProperty;
+    document.getElementById("clueText").textContent = chosenWordProperty.replace("_"," ");
     
     document.getElementById("wordImage").src = chosenWordImage;
 }
-
-
-
 
