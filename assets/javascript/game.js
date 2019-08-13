@@ -1,6 +1,6 @@
 var wordChoices = {
     australia: ["c", "a", "n", "b", "e", "r", "r", "a"],
-    united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"], //Problem with noun must be fixed... indexOf only catches the first occurrence of the letter. It breaks after that... need a for loop to replace all occurrences of letters
+    united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"],
     russia: ["m", "o", "s", "c", "o", "w"],
     china: ["b", "e", "i", "j", "i", "n", "g"],
     japan: ["t", "o", "k", "y", "o"],
@@ -62,13 +62,16 @@ function newWord() {
     chosenWordImage = wordImages[chosenWordImageProperty];
     guessedLetters = [];
     chosenWordHistory.push(chosenWordNumber);
+    
+    pageContent();
+}
 
+function pageContent() {
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters;
     document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
-    
     document.getElementById("wordImage").src = chosenWordImage;
 }
 
@@ -116,16 +119,7 @@ document.onkeyup = function (event) {
         alert("Make another guess... Use only lower-case alphabetical characters");
     }
 
-    console.log(chosenWordHistory.length);
-    console.log(Object.keys(wordChoices).length);
-    console.log(chosenWordHistory);
+    pageContent();
 
-    document.getElementById("score").textContent = score;
-    document.getElementById("guessesRemaining").textContent = guessesRemaining;
-    document.getElementById("currentWord").innerHTML = currentWord.join(" ");
-    document.getElementById("guessedLetters").textContent = guessedLetters;
-    document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
-    
-    document.getElementById("wordImage").src = chosenWordImage;
 }
 
