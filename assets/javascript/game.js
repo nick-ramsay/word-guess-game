@@ -1,5 +1,5 @@
 var wordChoices = {
-    austrailia: ["c", "a", "n", "b", "e", "r", "r", "a"],
+    australia: ["c", "a", "n", "b", "e", "r", "r", "a"],
     united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"], //Problem with noun must be fixed... indexOf only catches the first occurrence of the letter. It breaks after that... need a for loop to replace all occurrences of letters
     russia: ["m", "o", "s", "c", "o", "w"],
     china: ["b", "e", "i", "j", "i", "n", "g"],
@@ -55,7 +55,7 @@ function newWord() {
     currentWord = Array(wordChoices[chosenWordProperty].length).fill("_");
     
     for (i = chosenWordValue.indexOf(" "); i <= chosenWordValue.lastIndexOf(" "); i++) {
-        currentWord[chosenWordValue.indexOf(" ", i)] = "\  ";
+        currentWord[chosenWordValue.indexOf(" ", i)] = "&nbsp;";
     } //Auto replace _ with a space for object values that contain spaces
 
     chosenWordImageProperty = Object.keys(wordImages)[chosenWordNumber];
@@ -65,7 +65,7 @@ function newWord() {
 
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
-    document.getElementById("currentWord").textContent = currentWord.join(" ");
+    document.getElementById("currentWord").innerHTML = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters;
     document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
     
@@ -122,7 +122,7 @@ document.onkeyup = function (event) {
 
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
-    document.getElementById("currentWord").textContent = currentWord.join(" ");
+    document.getElementById("currentWord").innerHTML = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters;
     document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
     
