@@ -6,7 +6,8 @@ var wordChoices = {
     japan: ["t", "o", "k", "y", "o"],
     canada: ["o", "t", "t", "a", "w", "a"],
     france: ["p", "a", "r", "i", "s"],
-    cuba: ["h", "a", "v", "a", "n", "a"]
+    cuba: ["h", "a", "v", "a", "n", "a"],
+    united_arab_emirates: ["a","b","u"," ","d","h","a","b","i"]
 }
 
 var wordImages = {
@@ -17,7 +18,8 @@ var wordImages = {
     japan: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Japan_%28orthographic_projection%29.svg/330px-Japan_%28orthographic_projection%29.svg.png",
     canada: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CAN_orthographic.svg/330px-CAN_orthographic.svg.png",
     france: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/EU-France_%28orthographic_projection%29.svg/330px-EU-France_%28orthographic_projection%29.svg.png",
-    cuba: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/CUB_orthographic.svg/375px-CUB_orthographic.svg.png"
+    cuba: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/CUB_orthographic.svg/375px-CUB_orthographic.svg.png",
+    united_arab_emirates: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/United_Arab_Emirates_%28orthographic_projection%29.svg/375px-United_Arab_Emirates_%28orthographic_projection%29.svg.png"
 }
 
 var chosenWordImage
@@ -51,6 +53,10 @@ function newWord() {
     chosenWordProperty = Object.keys(wordChoices)[chosenWordNumber];
     chosenWordValue = wordChoices[chosenWordProperty];
     currentWord = Array(wordChoices[chosenWordProperty].length).fill("_");
+    
+    for (i = chosenWordValue.indexOf(" "); i <= chosenWordValue.lastIndexOf(" "); i++) {
+        currentWord[chosenWordValue.indexOf(" ", i)] = " ";
+    }
 
     chosenWordImageProperty = Object.keys(wordImages)[chosenWordNumber];
     chosenWordImage = wordImages[chosenWordImageProperty];
