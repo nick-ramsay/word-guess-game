@@ -55,7 +55,7 @@ function newWord() {
     currentWord = Array(wordChoices[chosenWordProperty].length).fill("_");
     
     for (i = chosenWordValue.indexOf(" "); i <= chosenWordValue.lastIndexOf(" "); i++) {
-        currentWord[chosenWordValue.indexOf(" ", i)] = "  ";
+        currentWord[chosenWordValue.indexOf(" ", i)] = "\ ";
     } //Auto replace _ with a space for object values that contain spaces
 
     chosenWordImageProperty = Object.keys(wordImages)[chosenWordNumber];
@@ -124,7 +124,7 @@ document.onkeyup = function (event) {
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").textContent = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters;
-    document.getElementById("clueText").textContent = chosenWordProperty.replace("_"," ");
+    document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
     
     document.getElementById("wordImage").src = chosenWordImage;
 }
