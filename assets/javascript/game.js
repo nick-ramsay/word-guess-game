@@ -55,7 +55,7 @@ function newWord() {
     currentWord = Array(wordChoices[chosenWordProperty].length).fill("_");
     
     for (i = chosenWordValue.indexOf(" "); i <= chosenWordValue.lastIndexOf(" "); i++) {
-        currentWord[chosenWordValue.indexOf(" ", i)] = "&nbsp;";
+        currentWord[chosenWordValue.indexOf(" ", i)] = &nbsp;
     } //Auto replace _ with a space for object values that contain spaces
 
     chosenWordImageProperty = Object.keys(wordImages)[chosenWordNumber];
