@@ -71,6 +71,7 @@ function newWord() {
 function pageContent() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
+    document.getElementById("winningScore").textContent = winningScore;
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
@@ -89,6 +90,7 @@ document.onkeyup = function (event) {
         if (chosenWordValue.indexOf(userGuess) === -1) {
             guessesRemaining--;
             if (guessesRemaining === 0) {
+                losses++;
                 newWord();
                 alert("You've lost. Try Again!");
                 score = 0;
@@ -109,6 +111,7 @@ document.onkeyup = function (event) {
             }
 
             if (score === winningScore) {
+                wins++;
                 score++;
                 chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
                 newWord();

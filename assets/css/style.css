@@ -8,18 +8,18 @@ body {
 }
 
 .clueBox {
-    background-color: blue;
+    background-color: #cd7f32 ;
     color: white;
-    border: blue solid 1px;
+    border: #cd7f32 solid 1px;
     border-radius: 25px;
     margin-top: 20px;
     padding:10px;
 }
 
 .gameStatBox {
-    background-color: red;
+    background-color: #800000;
     color:white;
-    border: red solid 1px;
+    border: #800000 solid 1px;
     border-radius: 25px;
     margin-top: 20px;
     padding:10px;
