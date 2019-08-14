@@ -24,6 +24,8 @@ var wordImages = {
 
 var chosenWordImage
 
+var wins = 0;
+var losses = 0;
 
 var winningScore = 5;
 var guessesRemaining = 15;
@@ -67,6 +69,8 @@ function newWord() {
 }
 
 function pageContent() {
+    document.getElementById("wins").textContent = wins;
+    document.getElementById("losses").textContent = losses;
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
