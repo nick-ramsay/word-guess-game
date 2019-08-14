@@ -1,13 +1,13 @@
 var wordChoices = {
-    australia: ["c", "a", "n", "b", "e", "r", "r", "a"],
-    united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"],
-    russia: ["m", "o", "s", "c", "o", "w"],
-    china: ["b", "e", "i", "j", "i", "n", "g"],
-    japan: ["t", "o", "k", "y", "o"],
-    canada: ["o", "t", "t", "a", "w", "a"],
-    france: ["p", "a", "r", "i", "s"],
-    cuba: ["h", "a", "v", "a", "n", "a"],
-    united_arab_emirates: ["a","b","u"," ","d","h","a","b","i"]
+    australia: ["C", "a", "n", "b", "e", "r", "r", "a"],
+    united_states: ["W", "a", "s", "h", "i", "n", "g", "t", "o", "n"],
+    russia: ["M", "o", "s", "c", "o", "w"],
+    china: ["B", "e", "i", "j", "i", "n", "g"],
+    japan: ["T", "o", "k", "y", "o"],
+    canada: ["O", "t", "t", "a", "w", "a"],
+    france: ["P", "a", "r", "i", "s"],
+    cuba: ["H", "a", "v", "a", "n", "a"],
+    united_arab_emirates: ["A","b","u"," ","D","h","a","b","i"]
 }
 
 var wordImages = {
