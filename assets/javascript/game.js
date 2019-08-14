@@ -1,13 +1,22 @@
 var wordChoices = {
-    australia: ["c", "a", "n", "b", "e", "r", "r", "a"],
-    united_states: ["w", "a", "s", "h", "i", "n", "g", "t", "o", "n"],
-    russia: ["m", "o", "s", "c", "o", "w"],
-    china: ["b", "e", "i", "j", "i", "n", "g"],
-    japan: ["t", "o", "k", "y", "o"],
-    canada: ["o", "t", "t", "a", "w", "a"],
-    france: ["p", "a", "r", "i", "s"],
-    cuba: ["h", "a", "v", "a", "n", "a"],
-    united_arab_emirates: ["a","b","u"," ","d","h","a","b","i"]
+    australia: "canberra",
+    united_states: "washington",
+    russia: "moscow",
+    china: "beijing",
+    japan: "tokyo",
+    canada: "ottawa",
+    france: "paris",
+    cuba: "havana",
+    united_arab_emirates: "abu dhabi",
+    egypt: "cairo",
+    mexico: "mexico city",
+    saudi_arabia: "riyadh",
+    south_korea: "seoul",
+    italy: "rome",
+    venezeula: "caracas",
+    united_kingdom: "london",
+    somalia: "mogadishu",
+    new_zealand: "wellington"
 }
 
 var wordImages = {
@@ -19,7 +28,16 @@ var wordImages = {
     canada: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/CAN_orthographic.svg/330px-CAN_orthographic.svg.png",
     france: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/EU-France_%28orthographic_projection%29.svg/330px-EU-France_%28orthographic_projection%29.svg.png",
     cuba: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/CUB_orthographic.svg/375px-CUB_orthographic.svg.png",
-    united_arab_emirates: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/United_Arab_Emirates_%28orthographic_projection%29.svg/375px-United_Arab_Emirates_%28orthographic_projection%29.svg.png"
+    united_arab_emirates: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/United_Arab_Emirates_%28orthographic_projection%29.svg/375px-United_Arab_Emirates_%28orthographic_projection%29.svg.png",
+    egypt: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/EGY_orthographic.svg/375px-EGY_orthographic.svg.png",
+    mexico: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/MEX_orthographic.svg/330px-MEX_orthographic.svg.png",
+    saudi_arabia: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Saudi_Arabia_%28orthographic_projection%29.svg/375px-Saudi_Arabia_%28orthographic_projection%29.svg.png",
+    south_korea: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Republic_of_Korea_%28orthographic_projection%29.svg/330px-Republic_of_Korea_%28orthographic_projection%29.svg.png",
+    italy: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EU-Italy_%28orthographic_projection%29.svg/330px-EU-Italy_%28orthographic_projection%29.svg.png",
+    venezeula: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Venezuela_Orthographic_Map.svg/375px-Venezuela_Orthographic_Map.svg.png",
+    united_kingdom: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/EU-United_Kingdom_%28orthographic_projection%29.svg/330px-EU-United_Kingdom_%28orthographic_projection%29.svg.png",
+    somalia: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Somalia_%28orthographic_projection%29.svg/375px-Somalia_%28orthographic_projection%29.svg.png",
+    new_zealand: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/NZL_orthographic_NaturalEarth.svg/375px-NZL_orthographic_NaturalEarth.svg.png"
 }
 
 var chosenWordImage
@@ -31,15 +49,9 @@ var winningScore = 5;
 var guessesRemaining = 15;
 
 var score = 0;
-
-
 var guessedLetters;
 
 var chosenWordHistory = [];
-
-/*if (chosenWordHistory.length === winningScore) {
-    chosenWordHistory = [];
-} // If all the words (properties) in the wordChoice object have been used, clear array to start again.*/
 
 var chosenWordNumber; //Generates a random integer equivalent less than or equal to count of properties in the object
 var chosenWordProperty;  //Uses chosenWordNumber to pick a property from object
@@ -51,20 +63,19 @@ function newWord() {
     for (i = 0; (chosenWordHistory.length === 0 && i === 0) || (chosenWordHistory.length > 0 && chosenWordHistory.indexOf(chosenWordNumber) !== -1); i++) {
         chosenWordNumber = Math.floor(Math.random() * Object.keys(wordChoices).length);
     } //Ensures that the word is only selected once per game.
-    
+
     chosenWordProperty = Object.keys(wordChoices)[chosenWordNumber];
     chosenWordValue = wordChoices[chosenWordProperty];
     currentWord = Array(wordChoices[chosenWordProperty].length).fill("_");
-    
+
     for (i = chosenWordValue.indexOf(" "); i <= chosenWordValue.lastIndexOf(" "); i++) {
         currentWord[chosenWordValue.indexOf(" ", i)] = "&nbsp;";
     } //Auto replace _ with a space for object values that contain spaces
 
-    chosenWordImageProperty = Object.keys(wordImages)[chosenWordNumber];
-    chosenWordImage = wordImages[chosenWordImageProperty];
+    chosenWordImage = wordImages[chosenWordProperty];
     guessedLetters = [];
     chosenWordHistory.push(chosenWordNumber);
-    
+
     pageContent();
 }
 
@@ -75,18 +86,26 @@ function pageContent() {
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
-    document.getElementById("guessedLetters").textContent = guessedLetters;
-    document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g," ");
+    document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
+    document.getElementById("clueText").textContent = chosenWordProperty.replace(/_/g, " ");
     document.getElementById("wordImage").src = chosenWordImage;
 }
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
-    var acceptedKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var acceptedKeys = "abcdefghijklmnopqrstuvwxyz"
+    //var acceptedKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     if (acceptedKeys.indexOf(userGuess) !== -1) {
+        if (guessedLetters.indexOf(userGuess) === -1){
         guessedLetters.push(userGuess);
+        } //Only push letter to guessedLetter array if it hasn't already been guessed
+        
+        if (chosenWordHistory.length === Object.keys(wordChoices).length) {
+            chosenWordHistory = [];
+        } // If all the words (properties) in the wordChoice object have been used, clear array to start again
+        
         if (chosenWordValue.indexOf(userGuess) === -1) {
             guessesRemaining--;
             if (guessesRemaining === 0) {
@@ -107,13 +126,13 @@ document.onkeyup = function (event) {
 
             if (currentWord.indexOf("_") === -1 && score < winningScore) {
                 score++;
-                newWord();     
+                newWord();
             }
 
             if (score === winningScore) {
                 wins++;
                 score++;
-                chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
+                //chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
                 newWord();
                 alert("Congratulations! You win! Play again!");
                 score = 0;
@@ -125,8 +144,8 @@ document.onkeyup = function (event) {
     else {
         alert("Make another guess... Use only lower-case alphabetical characters");
     }
-
+    console.log(Object.keys(wordChoices).length);
+    console.log(chosenWordHistory.length)
     pageContent();
-
 }
 
