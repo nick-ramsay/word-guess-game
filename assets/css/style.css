@@ -8,7 +8,7 @@ body {
 }
 
 .clueBox {
-    background-color: #cd7f32 ;
+    background-color: #cd7f32;
     color: white;
     border: #cd7f32 solid 1px;
     border-radius: 25px;
@@ -28,7 +28,7 @@ body {
 .winsLosses {
     color: black;
     padding: 0 2px 0 2px;
-    border: solid 2px black;
+    border: solid 2px #cd7f32;
     background-color: white;
     border-radius: 10%;
     font-weight: bold;
