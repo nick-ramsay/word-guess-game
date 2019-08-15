@@ -96,6 +96,7 @@ function pageContent() {
 }
 
 document.onkeyup = function (event) {
+    var message = "Welcome! Press any lowercase letter to start!";
     var userGuess = event.key;
 
     var acceptedKeys = "abcdefghijklmnopqrstuvwxyz"
@@ -143,6 +144,7 @@ document.onkeyup = function (event) {
     else {
         alert("Use lowercase letters only")
     }
+    document.getElementByID("message").textContent = message;
     pageContent();
 }
 
