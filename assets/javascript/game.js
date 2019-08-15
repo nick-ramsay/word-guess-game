@@ -50,6 +50,7 @@ var guessesRemaining = 15;
 
 var score = 0;
 var guessedLetters;
+var message;
 
 var chosenWordHistory = [];
 
@@ -86,7 +87,6 @@ function newWord() {
 function pageContent() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
-    document.getElementById("winningScore").textContent = winningScore;
     document.getElementById("score").textContent = score;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
@@ -113,7 +113,6 @@ document.onkeyup = function (event) {
             if (guessesRemaining === 0) {
                 losses++;
                 newWord();
-                alert("You've lost. Try Again!");
                 score = 0;
                 guessesRemaining = 15;
                 guessedLetters = [];
@@ -136,7 +135,7 @@ document.onkeyup = function (event) {
                 score++;
                 //chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
                 newWord();
-                alert("Congratulations! You win! Play again!");
+                message = "Congratulations! You win! Play again!";
                 score = 0;
                 guessesRemaining = 15;
             }
@@ -144,7 +143,7 @@ document.onkeyup = function (event) {
     }
 
     else {
-        alert("Make another guess... Use only lower-case alphabetical characters");
+        message = "Wrong letter. Try again!";
     }
     console.log(Object.keys(wordChoices).length);
     console.log(chosenWordHistory.length)
