@@ -87,7 +87,7 @@ function pageContent() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
     document.getElementById("score").textContent = score;
-    document.getElementById("winningScore").textContent = winningScore;
+    //document.getElementById("winningScore").textContent = winningScore;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
@@ -103,14 +103,17 @@ document.onkeyup = function (event) {
     //var acceptedKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     if (acceptedKeys.indexOf(userGuess) !== -1) {
+        message = "Correct!";
         if (guessedLetters.indexOf(userGuess) === -1){
         guessedLetters.push(userGuess);
+        message = "Wrong letter... try again!";
         } //Only push letter to guessedLetter array if it hasn't already been guessed
         
         
         if (chosenWordValue.indexOf(userGuess) === -1) {
             guessesRemaining--;
             if (guessesRemaining === 0) {
+                message = "You've lost... try again!";
                 losses++;
                 newWord();
                 score = 0;
@@ -126,11 +129,13 @@ document.onkeyup = function (event) {
             }
 
             if (currentWord.indexOf("_") === -1 && score < winningScore) {
+                message = "Nicely done... here's you next country!";
                 score++;
                 newWord();
             }
 
             if (score === winningScore) {
+                message = "You've won! Play again!";
                 wins++;
                 score++;
                 //chosenWordHistory = []; //Clear chosenWordHistory BEFORE selecting new word for next round
