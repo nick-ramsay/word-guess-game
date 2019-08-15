@@ -38,7 +38,8 @@ body {
     color: black;
     border: solid 2px white;
     background-color: white;
-    border-radius: 4%;
+    border-radius: 25px;
     font-weight: bold;
+    font-size: 12px;
 }
 
