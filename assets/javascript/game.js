@@ -102,7 +102,7 @@ document.onkeyup = function (event) {
         guessedLetters.push(userGuess);
         } //Only push letter to guessedLetter array if it hasn't already been guessed
         
-        if (chosenWordHistory.length === Object.keys(wordChoices).length)-1 {
+        if (chosenWordHistory.length === Object.keys(wordChoices).length - 1) {
             chosenWordHistory = [];
         } // If all the words (properties) in the wordChoice object have been used, clear array to start again
         
