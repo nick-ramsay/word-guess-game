@@ -62,8 +62,7 @@ var currentWord;
 function newWord() {
     if (chosenWordHistory.length === Object.keys(wordChoices).length) {
             chosenWordHistory = [];
-        } // If all the words (properties) in the wordChoice object have been used, clear array to start again
-    
+        } // If all the words (properties) in the wordChoice object have been used, clear array to start again    
     for (i = 0; (chosenWordHistory.length === 0 && i === 0) || (chosenWordHistory.length > 0 && chosenWordHistory.indexOf(chosenWordNumber) !== -1); i++) {
         chosenWordNumber = Math.floor(Math.random() * Object.keys(wordChoices).length);
     } //Ensures that the word is only selected once per game.
@@ -97,7 +96,7 @@ function pageContent() {
 
 document.onkeyup = function (event) {
     var message = "Welcome! Press any lowercase letter to start!";
-    document.getElementById("message").textContent = message;
+    
     var userGuess = event.key;
 
     var acceptedKeys = "abcdefghijklmnopqrstuvwxyz"
@@ -150,6 +149,7 @@ document.onkeyup = function (event) {
     else {
         alert("Use lowercase letters only")
     }
+    document.getElementById("message").textContent = message;
     pageContent();
 }
 
