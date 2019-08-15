@@ -60,6 +60,10 @@ var chosenWordValue; //uses chosenWordProperty to pick array value from object
 var currentWord;
 
 function newWord() {
+    if (chosenWordHistory.length === Object.keys(wordChoices).length) {
+            chosenWordHistory = [];
+        } // If all the words (properties) in the wordChoice object have been used, clear array to start again
+    
     for (i = 0; (chosenWordHistory.length === 0 && i === 0) || (chosenWordHistory.length > 0 && chosenWordHistory.indexOf(chosenWordNumber) !== -1); i++) {
         chosenWordNumber = Math.floor(Math.random() * Object.keys(wordChoices).length);
     } //Ensures that the word is only selected once per game.
@@ -102,9 +106,7 @@ document.onkeyup = function (event) {
         guessedLetters.push(userGuess);
         } //Only push letter to guessedLetter array if it hasn't already been guessed
         
-        if (chosenWordHistory.length === Object.keys(wordChoices).length - 1) {
-            chosenWordHistory = [];
-        } // If all the words (properties) in the wordChoice object have been used, clear array to start again
+        
         
         if (chosenWordValue.indexOf(userGuess) === -1) {
             guessesRemaining--;
