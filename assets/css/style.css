@@ -33,3 +33,12 @@ body {
     border-radius: 10%;
     font-weight: bold;
 }
+
+.message {
+    color: black;
+    border: solid 2px white;
+    background-color: white;
+    border-radius: 4%;
+    font-weight: bold;
+}
+
