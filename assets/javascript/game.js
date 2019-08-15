@@ -13,7 +13,7 @@ var wordChoices = {
     saudi_arabia: "riyadh",
     south_korea: "seoul",
     italy: "rome",
-    venezeula: "caracas",
+    venezuela: "caracas",
     united_kingdom: "london",
     somalia: "mogadishu",
     new_zealand: "wellington"
@@ -34,7 +34,7 @@ var wordImages = {
     saudi_arabia: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Saudi_Arabia_%28orthographic_projection%29.svg/375px-Saudi_Arabia_%28orthographic_projection%29.svg.png",
     south_korea: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Republic_of_Korea_%28orthographic_projection%29.svg/330px-Republic_of_Korea_%28orthographic_projection%29.svg.png",
     italy: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EU-Italy_%28orthographic_projection%29.svg/330px-EU-Italy_%28orthographic_projection%29.svg.png",
-    venezeula: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Venezuela_Orthographic_Map.svg/375px-Venezuela_Orthographic_Map.svg.png",
+    venezuela: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Venezuela_Orthographic_Map.svg/375px-Venezuela_Orthographic_Map.svg.png",
     united_kingdom: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/EU-United_Kingdom_%28orthographic_projection%29.svg/330px-EU-United_Kingdom_%28orthographic_projection%29.svg.png",
     somalia: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Somalia_%28orthographic_projection%29.svg/375px-Somalia_%28orthographic_projection%29.svg.png",
     new_zealand: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/NZL_orthographic_NaturalEarth.svg/375px-NZL_orthographic_NaturalEarth.svg.png"
