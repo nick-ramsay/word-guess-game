@@ -16,7 +16,11 @@ var wordChoices = {
     venezuela: "caracas",
     united_kingdom: "london",
     somalia: "mogadishu",
-    new_zealand: "wellington"
+    new_zealand: "wellington",
+    argentina: "buenos aires",
+    sweden: "stockholm",
+    phillipines: "manilla",
+    brazil: "brasilia"
 }
 
 var wordImages = {
@@ -37,7 +41,11 @@ var wordImages = {
     venezuela: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Venezuela_Orthographic_Map.svg/375px-Venezuela_Orthographic_Map.svg.png",
     united_kingdom: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/EU-United_Kingdom_%28orthographic_projection%29.svg/330px-EU-United_Kingdom_%28orthographic_projection%29.svg.png",
     somalia: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Somalia_%28orthographic_projection%29.svg/375px-Somalia_%28orthographic_projection%29.svg.png",
-    new_zealand: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/NZL_orthographic_NaturalEarth.svg/375px-NZL_orthographic_NaturalEarth.svg.png"
+    new_zealand: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/NZL_orthographic_NaturalEarth.svg/375px-NZL_orthographic_NaturalEarth.svg.png",
+    argentina: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Argentina_orthographic.svg/330px-Argentina_orthographic.svg.png",
+    sweden: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/EU-Sweden_%28orthographic_projection%29.svg/330px-EU-Sweden_%28orthographic_projection%29.svg.png",
+    phillipines: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/PHL_orthographic.svg/375px-PHL_orthographic.svg.png",
+    brazil: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/BRA_orthographic.svg/375px-BRA_orthographic.svg.png"
 }
 
 var chosenWordImage
@@ -86,7 +94,7 @@ function pageContent() {
     document.getElementById("wins").textContent = wins;
     document.getElementById("losses").textContent = losses;
     document.getElementById("score").textContent = score;
-    //document.getElementById("winningScore").textContent = winningScore;
+    document.getElementById("winningScore").textContent = winningScore;
     document.getElementById("guessesRemaining").textContent = guessesRemaining;
     document.getElementById("currentWord").innerHTML = currentWord.join(" ");
     document.getElementById("guessedLetters").textContent = guessedLetters.join(" ");
