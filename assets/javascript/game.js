@@ -95,7 +95,7 @@ function pageContent() {
 }
 
 document.onkeyup = function (event) {
-    var message = "Welcome! Press any lowercase letter to start!";
+    var message;
     
     var userGuess = event.key;
 
